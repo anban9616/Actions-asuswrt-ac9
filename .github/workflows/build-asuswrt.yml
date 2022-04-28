@@ -47,7 +47,7 @@ jobs:
         sudo -E apt-get -y install --no-install-recommends autoconf automake bash bison bzip2 diffutils file flex g++ gawk gcc-multilib gettext gperf groff-base libncurses-dev libexpat1-dev libslang2 libssl-dev libtool libxml-parser-perl make patch perl pkg-config python sed shtool tar texinfo unzip zlib1g zlib1g-dev
         sudo -E apt-get -y install lib32stdc++6 lib32z1-dev
         sudo -E apt-get -y --no-install-recommends install automake1.11
-        sudo -E apt-get -y install libelf-dev libelf1
+        sudo -E apt-get -y install libelf-dev libelf1:i386 libncurses5:i386 libc6-i386 libc6-dev-i386 ia32-libs lib32z1 		
         sudo -E apt-get -y --no-install-recommends install lib32z1-dev lib32stdc++6
         sudo -E apt-get -y install intltool autopoint vim imagemagick pngquant cmake
         sudo -E apt-get -qq autoremove --purge
@@ -91,11 +91,10 @@ jobs:
       id: compile
       run: |
         cd asuswrt
-        export PATH=$PATH:./release/src-rt-9.x/src/toolchains/hndtools-arm-linux-2.6.36-uclibc-4.5.3/bin
+        export PATH=$GITHUB_WORKSPACE/release/src-rt-9.x/src/toolchains/hndtools-arm-linux-2.6.36-uclibc-4.5.3/bin:$PATH
         echo $PATH
         cd ./release/src-rt-9.x/src/
         pwd
-        make defconfig
         make RT-AC1200G+
         echo "======================="
         echo "Space usage:"
