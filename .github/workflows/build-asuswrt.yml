@@ -20,7 +20,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/aoeII/asuswrt-for-Tenda-AC9-Router.git
+  REPO_URL: https://github.com/anban9616/asuswrt-for-Tenda-AC9-Router.git
   REPO_BRANCH: master
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
